@@ -1,5 +1,4 @@
 const {writeFileSync, mkdirSync} = require('fs');
-// const workspaceFolder = "${workspaceFolder}"
 
 function setup(path, project){
   mkdirSync(`${path}/${project}`, { recursive: true })
@@ -7,11 +6,11 @@ function setup(path, project){
   mkdirSync(`${path}/${project}/backend`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
-  mkdirSync(`${path}/${project}/frontend`, { recursive: true })
-  mkdirSync(`${path}/${project}/frontend/css`, { recursive: true })
-  mkdirSync(`${path}/${project}/frontend/dist`, { recursive: true })
-  mkdirSync(`${path}/${project}/frontend/html`, { recursive: true })
-  mkdirSync(`${path}/${project}/frontend/src`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/frontend/css`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/frontend/dist`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/frontend/html`, { recursive: true })
+  mkdirSync(`${path}/${project}/backend/frontend/src`, { recursive: true })
   
 
   writeFileSync(`${path}/${project}/README.md`, `
@@ -101,7 +100,7 @@ function setup(path, project){
       "include": ["src/**/*"]
     }
     `)
-  writeFileSync(`${path}/${project}/frontend/tsconfig.json`, `
+  writeFileSync(`${path}/${project}/backend/frontend/tsconfig.json`, `
     // FRONTEND
 {
   // Visit https://aka.ms/tsconfig to read more about this file
@@ -152,7 +151,7 @@ function setup(path, project){
   }
 }
     `)
-  writeFileSync(`${path}/${project}/frontend/css/style.css`, `
+  writeFileSync(`${path}/${project}/backend/frontend/css/style.css`, `
     :root{}
 body{
   background: #3b3b3f;
@@ -160,7 +159,7 @@ body{
   box-sizing: border-box
 }
     `)
-  writeFileSync(`${path}/${project}/frontend/html/index.html`, `
+  writeFileSync(`${path}/${project}/backend/frontend/html/index.html`, `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,8 +174,7 @@ body{
 </body>
 </html>
     `)
-  writeFileSync(`${path}/${project}/frontend/src/index.ts`, ``)
+  writeFileSync(`${path}/${project}/backend/frontend/src/index.ts`, ``)
 }
 
-
-setup('..', 'testProject')
+setup('..', 'test')
