@@ -15,8 +15,6 @@ function setup(path, project){
 
   writeFileSync(`${path}/${project}/README.md`, `
     java not included
-    install git: https://git-scm.com/install/
-    install node: https://nodejs.org/en/download
     git --version
     node -v
     npm -v
@@ -177,4 +175,16 @@ body{
   writeFileSync(`${path}/${project}/backend/frontend/src/index.ts`, ``)
 }
 
-setup('..', 'test')
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('loc: ', (loc) => {
+  rl.question('name: ', (name) => {
+    setup(loc.trim(), name.trim());
+    rl.close();
+  });
+});
