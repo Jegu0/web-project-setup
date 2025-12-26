@@ -4,6 +4,7 @@ function setup(path, project){
   mkdirSync(`${path}/${project}`, { recursive: true })
   mkdirSync(`${path}/${project}/java`, { recursive: true })
   mkdirSync(`${path}/${project}/backend`, { recursive: true })
+  mkdirSync(`${path}$/{project}/backend/public`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/dist`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/src`, { recursive: true })
   mkdirSync(`${path}/${project}/backend/frontend`, { recursive: true })
@@ -15,9 +16,6 @@ function setup(path, project){
 
   writeFileSync(`${path}/${project}/README.md`, `
     java not included
-    git --version
-    node -v
-    npm -v
     npm install
     `)
   writeFileSync(`${path}/${project}/package.json`, 
@@ -192,4 +190,5 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
