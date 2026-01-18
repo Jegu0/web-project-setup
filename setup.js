@@ -13,7 +13,6 @@ function setup(path, project){
   
 
   writeFileSync(`${path}/${project}/README.md`, `
-    java not included
     npm install
     `)
   writeFileSync(`${path}/${project}/package.json`, 
@@ -56,7 +55,15 @@ function setup(path, project){
     dist
     .env
     `)
-  writeFileSync(`${path}/${project}/backend/src/app.ts`, ``)
+  writeFileSync(`${path}/${project}/backend/src/app.ts`, `
+    const express = require('express')
+    const app = express()
+
+
+    app.listen(5000, () => {
+    console.log('Server listening on port 5000....')
+    })
+    `)
   writeFileSync(`${path}/${project}/backend/tsconfig.json`, `
     // BACKEND
     {
@@ -136,8 +143,8 @@ body{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../dist/index.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./dist/index.js" defer></script>
 </head>
 <body>
     
@@ -160,5 +167,6 @@ rl.question('loc: ', (loc) => {
     rl.close();
   });
 });
+
 
 
